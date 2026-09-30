@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BibliotecaDigital" default="default" basedir=".">
+    <description>Proyecto de biblioteca digital - Desafio POO404</description>
+    <import file="nbproject/build-impl.xml"/>
+</project>

@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS biblioteca_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE biblioteca_db;
+DROP TABLE IF EXISTS libro;
+DROP TABLE IF EXISTS categoria;
+DROP TABLE IF EXISTS autor;
+CREATE TABLE autor (id_autor INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(120) NOT NULL UNIQUE, nacionalidad VARCHAR(80) NOT NULL);
+CREATE TABLE categoria (id_categoria INT AUTO_INCREMENT PRIMARY KEY, nombre_categoria VARCHAR(80) NOT NULL UNIQUE);
+CREATE TABLE libro (id_libro INT AUTO_INCREMENT PRIMARY KEY, titulo VARCHAR(200) NOT NULL, año_publicacion YEAR NOT NULL, id_autor INT NOT NULL, id_categoria INT NOT NULL, CONSTRAINT fk_libro_autor FOREIGN KEY (id_autor) REFERENCES autor(id_autor), CONSTRAINT fk_libro_categoria FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria));
+INSERT INTO autor (nombre,nacionalidad) VALUES ('Gabriel García Márquez','Colombiana'),('Isabel Allende','Chilena'),('Julio Cortázar','Argentina');
+INSERT INTO categoria (nombre_categoria) VALUES ('Novela'),('Ciencia ficción'),('Poesía'),('Historia');
+INSERT INTO libro (titulo,año_publicacion,id_autor,id_categoria) VALUES ('Cien años de soledad',1967,1,1),('La casa de los espíritus',1982,2,1),('Rayuela',1963,3,1);
